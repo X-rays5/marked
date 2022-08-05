@@ -30,9 +30,12 @@ export class Renderer {
         + '</code></pre>\n';
     }
 
-    return '<pre><code class="'
-      + this.options.langPrefix
-      + escape(lang, true)
+    const getClassName = () => {
+      return this.options.langPrefix + escape(lang, true);
+    };
+
+    return '<pre class="' + getClassName() + '"><code class="'
+      + getClassName()
       + '">'
       + (escaped ? code : escape(code, true))
       + '</code></pre>\n';
